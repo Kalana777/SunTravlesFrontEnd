@@ -1,0 +1,100 @@
+<h1 class ="container">SEARCH HOTELS</h1>
+
+<form [formGroup]="searchForm" (ngSubmit) = "onSubmit()">
+
+  <div class ="container2">
+    <label>
+    Province
+
+    <select formControlName ="province">
+      <option value="western">Western</option>
+      <option value="southern">Southern</option>
+      <option value="central">Central</option>
+      <option value="north-central">North Central</option>
+      <option value="nothern">Nothern</option>
+      <option value="uva">Uva</option>
+      <option value="north-western">North Western</option>
+      <option value="eastern">Eastern</option>
+      <option value="sabaragamuwa">Sabaragamuwa</option>
+    </select>
+    </label>
+  </div>
+  <div class ="container2">
+      <label>
+
+      Hotel Name:
+      <input type="text" formControlName="hotel_name">
+     <!--  <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+      <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+      </div> -->
+      </label>
+  </div>
+
+  <h3 class="container">Number of Rooms</h3>
+  
+  <div class ="container">
+      <label>
+        Single
+
+        <input type="text" formControlName="roomSingle">
+        <!-- <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+        <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+        </div> -->
+      </label>
+
+      <label>
+        Double
+  
+        <input type="text" formControlName="roomDouble">
+       <!--  <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+        <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+        </div> -->
+      </label>
+
+      <label>
+        Triple
+    
+        <input type="text" formControlName="roomTriple">
+        <!-- <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+        <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+        </div> -->
+      </label>
+
+      <label>
+          Quadruple
+      
+          <input type="text" formControlName="roomQuadruple">
+          <!-- <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+          <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+          </div> -->
+        </label>
+
+    </div>
+
+    <div class = "container">
+      <label>
+        Check In
+
+        <input type="date" formControlName="check_in">
+        <!--   <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+          <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+          </div> -->
+      </label>
+    </div>
+
+    <div class ="container">
+        <label>
+  
+        Number of Nights:
+        <input type="text" formControlName="no_nights">
+        <!-- <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+        <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+        </div> -->
+        </label>
+    </div>
+
+    <input type="submit" value="Search" class="cta">
+
+</form>
+
+<button (click)="firstClick()">Click me</button>
