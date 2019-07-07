@@ -1,100 +1,101 @@
-<h1 class ="container">SEARCH HOTELS</h1>
+<div style="padding-right:15px;" class="container-fluid">
 
-<form [formGroup]="searchForm" (ngSubmit) = "onSubmit()">
-
-  <div class ="container2">
-    <label>
-    Province
-
-    <select formControlName ="province">
-      <option value="western">Western</option>
-      <option value="southern">Southern</option>
-      <option value="central">Central</option>
-      <option value="north-central">North Central</option>
-      <option value="nothern">Nothern</option>
-      <option value="uva">Uva</option>
-      <option value="north-western">North Western</option>
-      <option value="eastern">Eastern</option>
-      <option value="sabaragamuwa">Sabaragamuwa</option>
-    </select>
-    </label>
-  </div>
-  <div class ="container2">
-      <label>
-
-      Hotel Name:
-      <input type="text" formControlName="hotel_name">
-     <!--  <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
-      <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
-      </div> -->
-      </label>
-  </div>
-
-  <h3 class="container">Number of Rooms</h3>
+    <!-- form header -->
+    <div class="row">
+      <div class="col">
+        <h1>HOTEL SEARCH</h1>
+        <hr>
+      </div>
+    </div>
   
-  <div class ="container">
-      <label>
-        Single
-
-        <input type="text" formControlName="roomSingle">
-        <!-- <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
-        <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
-        </div> -->
-      </label>
-
-      <label>
-        Double
-  
-        <input type="text" formControlName="roomDouble">
-       <!--  <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
-        <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
-        </div> -->
-      </label>
-
-      <label>
-        Triple
     
-        <input type="text" formControlName="roomTriple">
-        <!-- <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
-        <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
-        </div> -->
-      </label>
-
-      <label>
-          Quadruple
       
-          <input type="text" formControlName="roomQuadruple">
-          <!-- <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
-          <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
-          </div> -->
-        </label>
-
-    </div>
-
-    <div class = "container">
-      <label>
-        Check In
-
-        <input type="date" formControlName="check_in">
-        <!--   <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
-          <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
-          </div> -->
-      </label>
-    </div>
-
-    <div class ="container">
-        <label>
+    <!-- main form -->
+     <div class="row">
+        
+          
+      <form action="" style="width:100%;" [formGroup]="searchForm">
+        <div class="col">
   
-        Number of Nights:
-        <input type="text" formControlName="no_nights">
-        <!-- <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
-        <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
-        </div> -->
-        </label>
+  
+          <div class ="row" style="margin-bottom: 1rem;">
+            <label>
+              Check In Date
+              <input type="date" formControlName="checkIn">
+                  <!--   <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+                    <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+                    </div> -->
+              </label>
+          </div>
+  
+          <div class ="row" style="margin-bottom: 1rem;">
+              <label>
+                Check Out Date
+                <input type="date" formControlName="checkOut">
+                    <!--   <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+                      <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+                      </div> -->
+              </label>
+          </div>
+  
+          <div class="row" style="margin-bottom: 1rem;">
+              <label>
+                Province the Hotel is located
+                <select formControlName="province">
+                    <option value="western">Western</option>
+                    <option value="southern">Southern</option>
+                    <option value="central">Central</option>
+                    <option value="north-central">North Central</option>
+                    <option value="nothern">Nothern</option>
+                    <option value="uva">Uva</option>
+                    <option value="north-western">North Western</option>
+                    <option value="eastern">Eastern</option>
+                    <option value="sabaragamuwa">Sabaragamuwa</option>
+                </select>
+              </label>
+          </div>
+
+          <div>
+              <h4>Room Details</h4>
+          </div>
+
+          <div class="row" style="margin-bottom: 1rem;">
+            <label>
+              Number of Single Rooms
+              <input type ="text" formControlName="singleRoom">
+            </label>
+          </div>
+
+          <div class="row" style="margin-bottom: 1rem;">
+            <label>
+              Number of Double Rooms
+              <input type ="text" formControlName="doubleRoom">
+            </label>
+          </div>
+
+          <div class="row" style="margin-bottom: 1rem;">
+            <label>
+              Number of Triple Rooms
+              <input type ="text" formControlName="tripleRoom">
+            </label>
+          </div>
+
+          <div class="row" style="margin-bottom: 1rem;">
+            <label>
+              Number of Quadruple Rooms
+              <input type ="text" formControlName="quadrupleRoom">
+            </label>
+          </div>
+  
+          
+  
+          <div class="col-2">
+              <button type="button" (click)="submitHandler()" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+      </form> 
+  
+      
     </div>
+  </div>
 
-    <input type="submit" value="Search" class="cta">
-
-</form>
-
-<button (click)="firstClick()">Click me</button>

@@ -13,17 +13,17 @@ export class HomeComponent implements OnInit {
   submitted = false;
   success = false;
   hotel: Object;
+  
 
   constructor( private data:DataService, private formBuilder: FormBuilder) {
     this.searchForm = this.formBuilder.group({
       province: [''],
-      hotel_name: [''],
-      roomSingle: [0],
-      roomDouble: [0],
-      roomTriple: [0],
-      roomQuadruple: [0],
-      check_in: [],
-      no_nights: [1]
+      singleRoom: [0],
+      doubleRoom: [0],
+      tripleRoom: [0],
+      quadrupleRoom: [0],
+      checkIn: [],
+      checkOut:[]
       
     })
    }
