@@ -1,4 +1,4 @@
-<div style="padding-right:15px;" class="container-fluid">
+<div style="margin-left: 1rem;" class="container-fluid">
 
     <!-- form header -->
     <div class="row">
@@ -11,7 +11,7 @@
     
       
     <!-- main form -->
-     <div class="row">
+     <div>
         
           
       <form action="" style="width:100%;" [formGroup]="searchForm">
@@ -62,28 +62,28 @@
           <div class="row" style="margin-bottom: 1rem;">
             <label>
               Number of Single Rooms
-              <input type ="text" formControlName="singleRoom">
+              <input type ="text" formControlName="singleRooms">
             </label>
           </div>
 
           <div class="row" style="margin-bottom: 1rem;">
             <label>
               Number of Double Rooms
-              <input type ="text" formControlName="doubleRoom">
+              <input type ="text" formControlName="doubleRooms">
             </label>
           </div>
 
           <div class="row" style="margin-bottom: 1rem;">
             <label>
               Number of Triple Rooms
-              <input type ="text" formControlName="tripleRoom">
+              <input type ="text" formControlName="tripleRooms">
             </label>
           </div>
 
           <div class="row" style="margin-bottom: 1rem;">
             <label>
               Number of Quadruple Rooms
-              <input type ="text" formControlName="quadrupleRoom">
+              <input type ="text" formControlName="quadrupleRooms">
             </label>
           </div>
   
@@ -94,8 +94,79 @@
             </div>
         </div>
       </form> 
+
+        <div *ngIf ="results">
+            <ul *ngIf ="results">
+              <li *ngFor="let result of results">
+                <h3>{{result.hotelName}}</h3>
+                <div *ngFor = "let type of result.roomTypesArray">
+                  <h4>{{type.roomTypeName}}</h4>
+                  <label *ngIf="type.maxAdults==1">
+                    Single Rooms available
+                    <input type="text" name="singleAvail" value={{type.numberAvailable}} readonly style="margin-left: 1rem;">
+                    <label style="margin-left: 1rem;">
+                      Price Per Room
+                      <input type="text" name="{{type.roomTypeName}}singlePrice" value={{type.cost}} readonly style="margin-left: 1rem;">
+                    </label>
+                    <label style="margin-left: 1rem;"> 
+                      Book: 
+                      <input type="text" name ="{{type.roomTypeName}}single">
+                    </label>
+                  </label>
+                  <label *ngIf="type.maxAdults==2">
+                    Double Rooms available
+                    <input type="text" name="doubleAvail" value={{type.numberAvailable}} readonly style="margin-left: 1rem;">
+                    <label style="margin-left: 1rem;">
+                      Price Per Room
+                      <input type="text" name="{{type.roomTypeName}}doublePrice" value={{type.cost}} readonly style="margin-left: 1rem;">
+                    </label>
+                    <label style="margin-left: 1rem;"> 
+                        Book: 
+                        <input type="text" name ="{{type.roomTypeName}}double">
+                      </label>
+                  </label>
+                  <label *ngIf="type.maxAdults==3">
+                    Triple Rooms available
+                    <input type="text" name="tripleAvail" value={{type.numberAvailable}} readonly style="margin-left: 1rem;">
+                    <label style="margin-left: 1rem;">
+                      Price Per Room
+                      <input type="text" name="{{type.roomTypeName}}triplePrice" value={{type.cost}} readonly style="margin-left: 1rem;">
+                    </label>
+                    <label style="margin-left: 1rem;"> 
+                        Book: 
+                        <input type="text" name ="{{type.roomTypeName}}triple">
+                      </label>
+                  </label>
+                  <label *ngIf="type.maxAdults==4">
+                    Quadruple Rooms available
+                    <input type="text" name="quadrupleAvail" value={{type.numberAvailable}} readonly style="margin-left: 1rem;">
+                    <label style="margin-left: 1rem;">
+                      Price Per Room
+                      <input type="text" name="{{type.roomTypeName}}quadruplePrice" value={{type.cost}} readonly style="margin-left: 1rem;">
+                    </label>
+                    <label style="margin-left: 1rem;"> 
+                        Book: 
+                        <input type="text" name ="{{type.roomTypeName}}quadruple">
+                      </label>
+                  </label>
+                </div>
+              </li>
+            </ul>
+            <label style="margin-left: 10rem;" style=" margin-top: 10rem;"> 
+                Price 
+                <input type="text" name="totalPrice" value ={{totalPrice}}$ readonly style="margin-left: 1rem;">
+
+              </label>
+          </div>
+      
+          <div *ngIf= "!flag">
+            <h3>No Rooms Available</h3>
+          </div>
+
+      
   
       
     </div>
+    
   </div>
 

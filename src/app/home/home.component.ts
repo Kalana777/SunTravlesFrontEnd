@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../data.service';
+import { frontEndResultModel } from '../models/frontEndResultModel';
 
 @Component({
   selector: 'app-home',
@@ -9,19 +10,21 @@ import { DataService } from '../data.service';
 })
 export class HomeComponent implements OnInit {
 
+  flag:Boolean = true;
   searchForm: FormGroup;
   submitted = false;
   success = false;
-  hotel: Object;
+  frontEndSearchResult: Object;
+  results: frontEndResultModel;
   
 
   constructor( private data:DataService, private formBuilder: FormBuilder) {
     this.searchForm = this.formBuilder.group({
       province: [''],
-      singleRoom: [0],
-      doubleRoom: [0],
-      tripleRoom: [0],
-      quadrupleRoom: [0],
+      singleRooms: [0],
+      doubleRooms: [0],
+      tripleRooms: [0],
+      quadrupleRooms: [0],
       checkIn: [],
       checkOut:[]
       
@@ -37,12 +40,21 @@ export class HomeComponent implements OnInit {
      }
 
    }
-   firstClick(){
-    this.data.getHotels().subscribe(data => {
-      this.hotel = data
-      console.log(this.hotel);
+
+   changeFlag(){
+    this.flag =false;
+   }
+
+   submitHandler(){
+     console.log(this.searchForm.value)
+    this.data.getSearchResults(this.searchForm.value).subscribe(data => {
+      this.results = data
+      console.log(this.results);
       }
     );
+    if(this.results ==null){
+      this.changeFlag();
+    }
    }
 
   ngOnInit() {

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HotelModel } from './models/hotelmodel';
 import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
+import { frontEndResultModel } from './models/frontEndResultModel';
 
 @Injectable({
   providedIn: 'root'
@@ -40,8 +41,10 @@ export class DataService {
       //(err)=>console.log(err)
     );
     }
-    
+  }
 
+  getSearchResults(model: FormData){
+    return this.http.post<frontEndResultModel>("http://localhost:8080/searchForm/newSearch", model)
   }
 }
 
